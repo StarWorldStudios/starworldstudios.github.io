@@ -1,9 +1,18 @@
 <script src="en_US/js/vue.js"></script>
 <script>
-var MyComponent = Vue.extend({
-    template: '<center>404 Not Found</center>'
+var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    message: 'dnuoF toN 404' //404 Not Found
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
 })
-
-new MyComponent().$mount('#app');
 </script>
-<div id="app"></div>
+  <div  id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Watch</button>
+  </div>
