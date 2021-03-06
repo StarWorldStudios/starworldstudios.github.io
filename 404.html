@@ -1,4 +1,9 @@
 <script src="en_US/js/vue.js"></script>
+  <div  id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Watch</button>
+  </div>
+
 <script>
 var app5 = new Vue({
   el: '#app-5',
@@ -12,7 +17,3 @@ var app5 = new Vue({
   }
 })
 </script>
-  <div  id="app-5">
-    <p>{{ message }}</p>
-    <button v-on:click="reverseMessage">Watch</button>
-  </div>
