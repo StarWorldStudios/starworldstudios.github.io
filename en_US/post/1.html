@@ -1,0 +1,68 @@
+
+    <style>
+        .popBox {
+            display: none;
+        }
+        .popBox:target {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .popBox .con {
+            background-color: rgba(250, 188, 199, 0.76);
+            border-radius: 5px;
+            padding: 1.5rem;
+            position: relative;
+            width: 25rem;
+        }
+
+        .popBox .close {
+            display: block;
+            position: relative;
+        }
+
+        .popBox .close::after {
+            align-items: center;
+            color: white;
+            content: "×";
+            cursor: pointer;
+            background-color: rgba(79, 79, 79, 0.9);
+            border-radius: 50%;
+            display: flex;
+            font-size: 1.25rem;
+            justify-content: center;
+            position: absolute;
+            right: -2.5rem;
+            top: -2.5rem;
+            height: 2rem;
+            width: 2rem;
+            z-index: 2;
+        }
+
+        .popBox::before {
+            content: "";
+            cursor: default;
+            background-color: rgba(173, 173, 173, 0.66);
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
+<ul>
+    <!--<li><a href="#post=1">Example</a></li>-->
+<script>location="#post=1";</script>
+</ul>
+<article class="popBox" id="post=1">
+    <div class="con">
+        <a href="../index.html" class="close"></a>
+        <p><a href="https://blog.yuzifu.top/">YuZiFu - Blog</a><br/><a href="https://www.abudu.top/">Abudu - Blog</a><br/><a href="https://tobylai.tk/">Toby - Blog</a></p>
+    </div>
+</article>
