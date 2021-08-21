@@ -1,6 +1,10 @@
 <script src="https://starworldstudios.github.io/en_US/js/vue.js"></script>
+<script type="text/javascript">
+var video=document.getElementById("video"); 
+video.controls=false;
+</script>
 <center>
-<video src="https://starworldstudios.github.io/img/384376982_nb2-1-16.mp4" controls="False" controlsList='nofullscreen nodownload noremote footbar' loop="loop" autoplay="autoplay" height="500" width="200"></video>
+<video src="https://starworldstudios.github.io/img/384376982_nb2-1-16.mp4" id="video" controls="False" controlsList='nofullscreen nodownload noremote footbar' loop="loop" autoplay="autoplay" height="500" width="200"></video>
 <div id="app-5">
   <p>{{ message }}</p>
   <button v-on:click="reverseMessage">Conversion</button>
