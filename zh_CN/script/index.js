@@ -1,4 +1,4 @@
 function cargc(){
     location="javascript:void(0);";
-    location="/game";
+    location="/zh_CN/game";
 }
