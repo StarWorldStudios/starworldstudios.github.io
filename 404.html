@@ -1,21 +1,9 @@
 <script src="https://starworldstudios.github.io/en_US/js/vue.js"></script>
 <center>
-<div id="app-5">
-  <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Conversion</button>
-</div>
+<a id="asg">404 Not Found</a>
 <script>
-var app5 = new Vue({
-  el: '#app-5',
-  data: {
-    message: '404 Not Found'
-  },
-  methods: {
-    reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
-    }
-  }
-})
+asgs = document.getElementByID("asg")
+asgs.innerHTML=asgs.split('').reverse().join('')
 document.title="404 Not Found"
 </script>
 </center>
