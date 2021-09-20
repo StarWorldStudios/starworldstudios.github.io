@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://starworld.itcraft.tk/zh_CN/css/font.css">
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://pv.sohu.com/cityjson?ie=utf-8" type="text/javascript"></script>
     <link rel="icon" href="https://creation.codemao.cn/445/kitten/d2ViXzIwMDFfNjU4NTIzNl8xMTAxNDY4MDNfMTYyNzM3NDA1OTk1M184ZjBmMGYwMA==.png"/>
 </head>
 <body>
@@ -26,9 +28,10 @@ var httpRequest = new XMLHttpRequest();//建立所需的对象
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == 4 && httpRequest.status == 200) {
                 var json = httpRequest.responseText;//获取到json字符串
-                document.getElementById("oplist").innerHTML = ("OP: "+JSON.parse(json).ops);
+                document.getElementById("otherlist").innerHTML = ("OP: "+JSON.parse(json).ops+"<br/>你当前所在位置: "+returnCitySN.cname+" "+returnCitySN.cip);
             }
         };
+		
 </script>
 <nav class="navbar navbar-inverse" role="navigation">
 	<div class="container-fluid"> 
@@ -86,7 +89,7 @@ var httpRequest = new XMLHttpRequest();//建立所需的对象
 			<br/>
 				腐竹:StarWorld
 			<br/>
-				<p id="oplist">OP:</p>
+				<p id="otherlist">{{MESSAGE}}</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" 
