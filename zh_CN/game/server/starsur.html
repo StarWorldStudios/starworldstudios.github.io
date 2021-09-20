@@ -28,7 +28,7 @@ var httpRequest = new XMLHttpRequest();//建立所需的对象
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == 4 && httpRequest.status == 200) {
                 var json = httpRequest.responseText;//获取到json字符串
-                document.getElementById("otherlist").innerHTML = ("OP: "+JSON.parse(JSON.parse(json).starsur).ops+"<br/>你当前所在位置: "+returnCitySN.cname+" "+returnCitySN.cip);
+                document.getElementById("otherlist").innerHTML = ("OP: "+JSON.parse(json).starsur.ops+"<br/>你当前所在位置: "+returnCitySN.cname+" "+returnCitySN.cip);
             }
         };
 		
