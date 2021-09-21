@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+    <base href="https://www.itcraft.tk/community"/>
+		<title>论坛 - iT Craft Studio 互联工艺 官网 V6.4</title>
+		<link rel="icon" type="image/png" href="./img/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="./css/index.css" />
+		<link rel="stylesheet" type="text/css" href="./css/markdown.css" />
+	</head>
+	<body>
+		<nav class="nav">
+			<ul>
+				<li><a><strong>iT Craft Studio互联工艺</strong></a></li>
+        <li><a href="..">首页</a></li>
+				<li><a href="../download">下载</a></li>
+				<li><a class="action" href="../community">论坛</a></li>
+				<!-- <li><a href="./blog">公告</a></li> -->
+				<li><a href="../about/index.html">关于我们</a></li>
+				<li><a href="../tools">工具</a></li>
+				<li style="float: right;"><a id="showbutton" href="javascript:showcd()">· · ·</a></li>
+			</ul>
+		</nav>
+		<div class="msg" id="msg" style="display:none;">
+			<h4>更 多</h4>
+			<form action="https://www.baidu.com/s">
+				<input type="text" name="wd" class="search" placeholder="百度一下" />
+			</form>
+			<p id="hsd">回声洞收集装置故障ing</p>
+		</div>
+		<div class="downlist">
+			<ul id="list">
+			    <li><a><strong>发帖说明</strong></a></li>
+			    <li><a>1、V6.5版本前请使用HTML5编写帖子</a></li>
+			    <li><a>2、文明交流，否则您的帖子将会被管理员使用精准追踪<s>导弹</s>夹子</a></li>
+			    <li><a>3、因为特殊原因，删帖/修改请找管理员</a></li>
+			    <li><a><strong>温馨提示</strong></a></li>
+			    <li><a>发帖三思而行，请不要利用论坛特性发布违规贴，否则自己想办法修复</a></li>
+			    <li><a href="./index.html">返回</a></li>
+			</ul>
+		</div>
+ 		<div id="info" style="margin-left:25%;padding:1px 16px;text-align:left;">
+			<span>帖子标题：</span>
+			<input style="text-align:left;" type="input" class="button2" id="title" />
+			<br /><span>帖子正文(拖拽可调整输入框大小): </span><br />
+			<textarea style="text-align:left;" class="button" id="text" rows="22" cols="66"></textarea>
+			<br>
+			<span>留下你的大名：</span>
+			<input class="button2" style="text-align:left;" id="zuozhe" />
+			<a href="javascript:send()" class="button">发帖</a>
+			<a href="javascript:refresh_show()" class="button2">刷新预览</a>
+                        <br /><br />
+			<div class="markdown-body" id="_show" style="border-style:solid;border-width:1px;"><h1>预览</h1></div>
+		</div> 
+		<!-- <div id="downinfo" width="75%" style="float:right;te"></div> -->
+		<script src="./js/msg.js"></script>
+		<script src="./js/send.js"></script>
+	</body>
+</html>
