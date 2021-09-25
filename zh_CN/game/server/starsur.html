@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://pv.sohu.com/cityjson?ie=utf-8" type="text/javascript"></script>
     <link rel="icon" href="https://creation.codemao.cn/445/kitten/d2ViXzIwMDFfNjU4NTIzNl8xMTAxNDY4MDNfMTYyNzM3NDA1OTk1M184ZjBmMGYwMA==.png"/>
-</head>
+<script async src='/cdn-cgi/challenge-platform/h/b/scripts/invisible.js'></script></head>
 <body>
 <style>
     *{
@@ -19,6 +20,7 @@
 </style>
 <script>
 //API:https://starworld.itcraft.tk/api/jsons/ops.json
+//API:https://api.imlazy.ink/mcapi/?host=starworldsurvival.itcraft.tk&port=&name=StarWorld&type=json
 var httpRequest = new XMLHttpRequest();//建立所需的对象
         httpRequest.open('GET', 'https://starworld.itcraft.tk/api/jsons/ops.json', true);//设置请求
         httpRequest.send();//发送请求
@@ -31,6 +33,19 @@ var httpRequest = new XMLHttpRequest();//建立所需的对象
                 document.getElementById("otherlist").innerHTML = ("OP: "+JSON.parse(json).starsur.ops+"<br/>你当前所在位置: "+returnCitySN.cname+" "+returnCitySN.cip);
             }
         };
+var httpRequest1 = new XMLHttpRequest();//建立所需的对象
+httpRequest1.open('GET', 'https://api.imlazy.ink/mcapi/?host=starworldsurvival.itcraft.tk&port=&name=StarWorld&type=json', true);//设置请求
+httpRequest1.send();//发送请求
+/**
+ * 获取数据后的处理程序
+ */
+httpRequest1.onreadystatechange = function () {
+    if (httpRequest1.readyState == 4 && httpRequest1.status == 200) {
+        var json_1 = httpRequest1.responseText;//获取到json字符串
+        aa = JSON.parse(json_1)
+        document.getElementById("otherlist").innerHTML = ("状态:"+aa.status+" | "+aa.players_online+"/"+aa.players_max+"<br>"+document.getElementById("otherlist").innerHTML);
+    }
+};
 		
 </script>
 <nav class="navbar navbar-inverse" role="navigation">
@@ -48,13 +63,6 @@ var httpRequest = new XMLHttpRequest();//建立所需的对象
 	</div>
 </nav>
 <center>
-<div class="alert alert-warning alert-dismissable">
-	<button type="button" class="close" data-dismiss="alert"
-			aria-hidden="true">
-		&times;
-	</button>
-	服务器随机时间开
-</div>
 
 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">点击查看服务器信息
 </button>
@@ -87,5 +95,5 @@ var httpRequest = new XMLHttpRequest();//建立所需的对象
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-</body>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'694018db7bf1365b',m:'mMWkWeY.Yg9FJIPd0JwVhADIYAIca5Y0K_7ADK2.2EQ-1632529335-0-AROHnPUhZp9+wX4f34GprFTn4+M/TdNcWvEmhG5pcgMvZ2agZp2fslBAuRcDxDpjAgPMHL/39FaxFqpyYS3jVGGmsRBiAOXQnWd+6FAvExSF/27afzXEiJ6wZazZswx0LQ5H+5csCCLvvzTkoisfbDo=',s:[0x7601ce6022,0x00369819ad],u:'/cdn-cgi/challenge-platform/h/b'}})();</script></body>
 </html>
