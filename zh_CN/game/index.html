@@ -56,119 +56,199 @@
 <center>
 	<a data-toggle="modal" data-target="#myModal">... 展开</a>
 </center>
+<script src="js/jquery.min.js"></script>
+
+<script src="js/LiftEffect.js"></script>
+
+<script>
+
+$(function(){
+
+LiftEffect({
+
+"control1": ".lift-nav",  //侧栏电梯的容器
+
+"control2": ".lift",                           //需要遍历的电梯的父元素
+
+"target": [".t1",".t2",".t3",".t4",".t5",".t6"], //监听的内容，注意一定要从小到大输入
+
+"current": "current"  //选中的样式
+
+});
+
+})
+
+</script>
+<script>
+
+function LiftEffect(json){
+
+var array=[];
+
+for(var i =0; i<json.target.length;i++){
+
+var t = $(json.target[i]).offset().top;
+
+array.push(t);
+
+}
+
+function Selected(index){
+
+$(json.control2).children().eq(index).addClass(json.current).siblings().removeClass(json.current);
+
+}
+
+$(window).on("scroll",Check);
+
+function Check(){
+
+var wst = $(window).scrollTop();
+
+if(wst >= $(json.target[0]).offset().top-100){
+
+$(json.control1).fadeIn(500);
+
+}else{
+
+$(json.control1).fadeOut(500);
+
+}
+
+var key =0;
+
+var flag = true;
+
+for(var i =0; i<array.length; i++){
+
+key++;
+
+if(flag){
+
+if(wst >= array[array.length-key]-300){
+
+var index = array.length-key;
+
+flag = false;
+
+}else{
+
+flag=true;
+
+}
+
+}
+
+}
+
+Selected(index);
+
+}
+
+$(json.control2).children().on("click",function(){
+
+$(window).off("scroll");
+
+var index = $(this).index();
+
+Selected(index);
+
+var flag = true;
+
+for(var i =0; i<array.length; i++){
+
+if(flag){
+
+if(index == i){
+
+$("html,body").stop().animate({
+
+"scrollTop": array[i]-50
+
+},500,function(){
+
+$(window).on("scroll",Check);
+
+});
+
+flag = false;
+
+}else{
+
+flag=true;
+
+}
+
+}
+
+}
+
+});
+
+}</script>
+
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
 
-.sidebar {
-    position: fixed;
-    left: -250px;
-    width: 250px;
-    height: 100vh;
-    background-color: #042331;
-    transition: all 0.5s ease;
-}
+* { margin: 0; padding: 0; list-style-type: none; }
 
-.sidebar header {
-    color: white;
-    text-align: center;
-    line-height: 70px;
-    font-size: 22px;
-    background: #063146;
-    user-select: none;
-}
 
-.sidebar ul a {
-    display: block;
-    padding-left: 50px;
-    line-height: 70px;
-    border-top: 1px solid rgba(255, 255, 255, .1);
-    border-bottom: 1px solid black;
-    color: white;
-    transition: 0.3s linear;
-}
+.lift-nav { position: fixed; top: 100px; left: 30px; display: none; }
 
-.sidebar ul i {
-    padding-right: 16px;
-}
+.lift-nav li { width: 30px; height: 30px; text-align: center; line-height: 30px; color: #fff; padding: 10px 10px; margin-bottom: 10px; background: skyblue; cursor: pointer; }
 
-.sidebar ul a:hover {
-    padding-left: 40px;
-}
+.lift-nav li.current { background: tomato; }
 
-#check {
-    display: none;
-}
+.t1, .t2, .t3, .t4, .t5, .t6 { width: 800px; height: 400px; text-align: center; line-height: 400px; background: skyblue; margin: 100px auto; font-size: 30px; color: #fff; }
 
-label #btn,
-label #cancel {
-    position: absolute;
-    cursor: pointer;
-    background-color: #042331;
-    border-radius: 3px;
-}
+.t1 { margin-top: 200px; }
 
-label #btn {
-    left: 40px;
-    top: 25px;
-    color: white;
-    font-size: 35px;
-    padding: 6px 10px;
-    transition: 0.3s;
-}
+.t2 { background: pink; }
 
-label #cancel {
-    z-index: 999;
-    left: -197px;
-    top: 17px;
-    font-size: 30px;
-    color: #0a5275;
-    padding: 4px 9px;
-    transition: 0.3s;
-}
+.t3 { background: tomato; }
 
-#check:checked~.sidebar {
-    left: 0px;
-}
+.t4 { background: grey; }
 
-#check:checked~label #btn {
-    left: 250px;
-    opacity: 0;
-}
+.t5 { background: yellow; }
 
-#check:checked~label #cancel {
-    left: 197px;
-}
+.t6 { background: seagreen; }
 
-section {
-    background: url(bg.png) no-repeat;
-    background-position: center;
-    height: 100vh;
-    background-size: cover;
-    transition: all 0.5s;
-}
-
-#check:checked~section {
-    margin-left: 250px;
-}
 </style>
-    <div class="sidebar">
-        <header>StarWorld Game</header>
-        <ul>
-            <li><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-link"></i>Shortcuts</a></li>
-            <li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
-            <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
-            <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
-            <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
-            <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
-        </ul>
-    </div>
-    <section></section>
+<div class="lift-nav">
+
+  <ul class="lift">
+
+    <li>1楼</li>
+
+    <li>2楼</li>
+
+    <li>3楼</li>
+
+    <li>4楼</li>
+
+    <li>5楼</li>
+
+    <li>6楼</li>
+
+  </ul>
+
+</div>
+
+<div class="lift-target">
+
+  <div class="t1">这是1楼</div>
+
+  <div class="t2">这是2楼</div>
+
+  <div class="t3">这是3楼</div>
+
+  <div class="t4">这是4楼</div>
+
+  <div class="t5">这是5楼</div>
+
+  <div class="t6">这是6楼</div>
+
+</div>
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
