@@ -8,6 +8,7 @@
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="icon" href="https://creation.codemao.cn/445/kitten/d2ViXzIwMDFfNjU4NTIzNl8xMTAxNDY4MDNfMTYyNzM3NDA1OTk1M184ZjBmMGYwMA==.png"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.css">
 </head>
 <body>
 <style>
@@ -55,6 +56,125 @@
 <center>
 	<a data-toggle="modal" data-target="#myModal">... 展开</a>
 </center>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #042331;
+    transition: all 0.5s ease;
+}
+
+.sidebar header {
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    font-size: 22px;
+    background: #063146;
+    user-select: none;
+}
+
+.sidebar ul a {
+    display: block;
+    padding-left: 50px;
+    line-height: 70px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid black;
+    color: white;
+    transition: 0.3s linear;
+}
+
+.sidebar ul i {
+    padding-right: 16px;
+}
+
+.sidebar ul a:hover {
+    padding-left: 40px;
+}
+
+#check {
+    display: none;
+}
+
+label #btn,
+label #cancel {
+    position: absolute;
+    cursor: pointer;
+    background-color: #042331;
+    border-radius: 3px;
+}
+
+label #btn {
+    left: 40px;
+    top: 25px;
+    color: white;
+    font-size: 35px;
+    padding: 6px 10px;
+    transition: 0.3s;
+}
+
+label #cancel {
+    z-index: 999;
+    left: -197px;
+    top: 17px;
+    font-size: 30px;
+    color: #0a5275;
+    padding: 4px 9px;
+    transition: 0.3s;
+}
+
+#check:checked~.sidebar {
+    left: 0px;
+}
+
+#check:checked~label #btn {
+    left: 250px;
+    opacity: 0;
+}
+
+#check:checked~label #cancel {
+    left: 197px;
+}
+
+section {
+    background: url(bg.png) no-repeat;
+    background-position: center;
+    height: 100vh;
+    background-size: cover;
+    transition: all 0.5s;
+}
+
+#check:checked~section {
+    margin-left: 250px;
+}
+</style>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>My App</header>
+        <ul>
+            <li><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-link"></i>Shortcuts</a></li>
+            <li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
+            <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
+            <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+            <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+            <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+        </ul>
+    </div>
+    <section></section>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
